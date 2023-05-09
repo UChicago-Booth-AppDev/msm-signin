@@ -29,8 +29,31 @@
       <li>
         <a href="/characters">Characters</a>
       </li>
+      <li>
+        <a href="/bookmarks">Bookmarks</B>
+      </li>
+
+       <% if session.fetch(:user_id) == nil %>
+        <li>
+          <a href="/user_sign_up">Sign Up</a>
+        </li>
+        <li>
+          <a href="/user_sign_in">Sign In</a>
+        </li>
+      <% else %>
+        <li>
+          <a href="/user_sign_out">Sign Out</a>
+        </li>
+      <% end %>
     </ul>
     
+    <% if notice != nil%>
+    <p style="color: green"> <%= notice %> </p>
+    <%end%>
+    <% if alert != nil%>
+    <p style="color: red"> <%= alert %> </p>
+    <%end%>
+
     <%= yield %>
   </body>
 </html>
