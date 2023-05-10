@@ -11,6 +11,6 @@
 class Bookmark < ApplicationRecord
 
 belongs_to :user
-belongs_to :movie
+belongs_to :movie, :required => true
 
 end
